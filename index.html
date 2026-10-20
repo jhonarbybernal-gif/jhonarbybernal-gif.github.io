@@ -280,7 +280,7 @@
                 
                 <!-- Contact Info & Links -->
                 <div class="md:col-span-5 space-y-6">
-                    <div class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 flex items-center gap-4">
+                    <a href="mailto:jhonarbybernal@gmail.com" class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 flex items-center gap-4 hover:border-brand-500/50 transition-colors block">
                         <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 text-xl">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
@@ -288,7 +288,7 @@
                             <h4 class="text-sm text-slate-400 font-medium">Email Me</h4>
                             <p class="text-white font-semibold mt-0.5">jhonarbybernal@gmail.com</p>
                         </div>
-                    </div>
+                    </a>
 
                     <div class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 text-xl">
@@ -306,27 +306,29 @@
                 <!-- Contact Form -->
                 <div class="md:col-span-7 bg-slate-800/30 p-8 rounded-2xl border border-slate-700/60">
                     <form id="contact-form" class="space-y-6">
+                        <!-- PASTE YOUR WEB3FORMS ACCESS KEY IN VALUE BELOW -->
+                        <input type="hidden" name="access_key" value="0b14aad9-fa7b-48ca-a0f2-e5f67a51c38f">
+                        <input type="hidden" name="subject" value="New Message from Portfolio Website">
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
-                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
+                                <input type="text" name="name" required placeholder="John Doe" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
-                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
+                                <input type="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                            <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
+                            <textarea name="message" rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition duration-300">
+                        <button type="submit" id="submit-btn" class="w-full py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition duration-300">
                             Send Message
                         </button>
                     </form>
-                    <div id="form-response" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center">
-                        Thank you! Your message has been recorded.
-                    </div>
+                    <div id="form-response" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center"></div>
                 </div>
 
             </div>
