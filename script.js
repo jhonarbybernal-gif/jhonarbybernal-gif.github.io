@@ -1,36 +1,30 @@
-// Intersection Observer for Scroll Animations
-document.addEventListener("DOMContentLoaded", () => {
-    const observerOptions = {
-        threshold: 0.15 // Triggers when 15% of the element is visible
-    };
+// Set dynamic current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-                observer.unobserve(entry.target); // Animates once
-            }
-        });
-    }, observerOptions);
+// Mobile menu toggle logic
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
 
-    // Attach observer to all elements with class 'reveal'
-    const revealElements = document.querySelectorAll(".reveal");
-    revealElements.forEach(el => observer.observe(el));
-});
-
-// 3D Tilt Effect on Project Cards
-const cards = document.querySelectorAll('.project-card');
-
-cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        card.style.transform = `perspective(1000px) rotateX(${-y / 15}deg) rotateY(${x / 15}deg) translateY(-5px)`;
+if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
     });
+}
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+// Simple Form Submission Handler
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const response = document.getElementById('form-response');
+        
+        contactForm.reset();
+        if (response) {
+            response.classList.remove('hidden');
+            
+            setTimeout(() => {
+                response.classList.add('hidden');
+            }, 4000);
+        }
     });
-});
+}
